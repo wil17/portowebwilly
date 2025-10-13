@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willy Nurgian - Full Stack Web Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#2C3E50',
+                            dark: '#1A1A1A'
+                        },
+                        secondary: {
+                            light: '#34495E',
+                            dark: '#2D2D2D'
+                        },
+                        accent: '#3498DB'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .smooth-transition { transition: all 0.3s ease; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-white dark:bg-primary-dark text-primary-light dark:text-white/90 smooth-transition">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 dark:bg-primary-dark/95 backdrop-blur-sm shadow-md z-50 smooth-transition">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-2xl font-bold text-accent">WN</a>
+                <div class="flex items-center gap-8">
+                    <div class="hidden md:flex gap-6">
+                        <a href="#home" class="nav-link hover:text-accent smooth-transition" data-id="nav-home">Beranda</a>
+                        <a href="#about" class="nav-link hover:text-accent smooth-transition" data-id="nav-about">Tentang</a>
+                        <a href="#skills" class="nav-link hover:text-accent smooth-transition" data-id="nav-skills">Keahlian</a>
+                        <a href="#projects" class="nav-link hover:text-accent smooth-transition" data-id="nav-projects">Proyek</a>
+                        <a href="#experience" class="nav-link hover:text-accent smooth-transition" data-id="nav-experience">Pengalaman</a>
+                    </div>
+                    <div class="flex gap-4 items-center">
+                        <button onclick="toggleLanguage()" class="px-3 py-1 rounded-lg bg-accent/10 hover:bg-accent/20 smooth-transition">
+                            <span id="lang-toggle">EN</span>
+                        </button>
+                        <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-accent/10 hover:bg-accent/20 smooth-transition">
+                            <i id="theme-icon" class="fas fa-moon"></i>
+                        </button>
+                        <button onclick="toggleMobileMenu()" class="md:hidden p-2">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 nav-link hover:text-accent" data-id="nav-home">Beranda</a>
+                <a href="#about" class="block py-2 nav-link hover:text-accent" data-id="nav-about">Tentang</a>
+                <a href="#skills" class="block py-2 nav-link hover:text-accent" data-id="nav-skills">Keahlian</a>
+                <a href="#projects" class="block py-2 nav-link hover:text-accent" data-id="nav-projects">Proyek</a>
+                <a href="#experience" class="block py-2 nav-link hover:text-accent" data-id="nav-experience">Pengalaman</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 pb-12">
+        <div class="container mx-auto px-6">
+            <!-- Mobile Photo - Tampil di atas pada mobile -->
+            <div class="flex justify-center mb-8 md:hidden">
+                <div class="w-64 h-64 bg-gradient-to-br from-accent to-secondary-light dark:to-secondary-dark rounded-full flex items-center justify-center overflow-hidden shadow-2xl">
+                    <img src="./img/formal.jpg" alt="Willy Nurgian" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <i class="fas fa-user text-9xl text-white/30 hidden"></i>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                        <span class="text-accent">Willy Nurgian</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl mb-6 text-secondary-light dark:text-white/70" data-id="hero-title">
+                        Full Stack Web Developer
+                    </h2>
+                    <p class="text-lg mb-8 text-secondary-light dark:text-white/60" data-id="hero-desc">
+                        Mengubah ide menjadi solusi digital yang inovatif dan berdampak
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" onclick="sendEmail(event)" class="px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 smooth-transition" data-id="btn-hire">
+                            Hubungi Saya
+                        </a>
+                        <button onclick="downloadCV()" class="px-6 py-3 border-2 border-accent text-accent rounded-lg hover:bg-accent hover:text-white smooth-transition" data-id="btn-cv">
+                            Download CV
+                        </button>
+                    </div>
+                    <div class="flex gap-4 mt-8">
+                        <a href="https://github.com/wil17" target="_blank" class="text-2xl hover:text-accent smooth-transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/willynurgian/" target="_blank" class="text-2xl hover:text-accent smooth-transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:willynurgian17@gmail.com" class="text-2xl hover:text-accent smooth-transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex justify-center">
+                    <div class="w-80 h-80 bg-gradient-to-br from-accent to-secondary-light dark:to-secondary-dark rounded-full flex items-center justify-center overflow-hidden shadow-2xl">
+                        <img id="profile-photo" src="./img/formal.jpg" alt="Willy Nurgian" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <i class="fas fa-user text-9xl text-white/30 hidden"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-secondary-dark smooth-transition">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span data-id="about-title">Tentang Saya</span>
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-primary-dark rounded-xl p-8 shadow-lg">
+                    <p class="text-lg leading-relaxed mb-6 text-secondary-light dark:text-white/70" data-id="about-bio">
+                        Full Stack Web Developer dengan keahlian dalam membangun aplikasi web yang inovatif dan user-friendly. Berpengalaman dalam mengembangkan berbagai jenis website mulai dari sistem informasi geografis, e-commerce, hingga aplikasi berbasis AI, dan lainnya. Memiliki passion dalam menciptakan solusi digital yang memberikan dampak nyata bagi pengguna.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-8">
+                        <div>
+                            <h3 class="font-semibold text-xl mb-2 text-accent" data-id="about-edu-title">Pendidikan</h3>
+                            <p class="text-secondary-light dark:text-white/70">Universitas Lambung Mangkurat</p>
+                            <p class="text-sm text-secondary-light/70 dark:text-white/50" data-id="about-edu-year">Tahun Lulus: 2025</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-xl mb-2 text-accent" data-id="about-loc-title">Lokasi</h3>
+                            <p class="text-secondary-light dark:text-white/70">Banjarmasin, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span data-id="experience-title">Pengalaman Organisasi</span>
+            </h2>
+            <div class="max-w-4xl mx-auto grid gap-6">
+                <!-- Experience 1 -->
+                <div class="bg-white dark:bg-secondary-dark rounded-xl p-6 shadow-lg smooth-transition hover:shadow-xl">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-accent" data-id="exp1-position">Anggota Divisi Kaderisasi</h3>
+                            <p class="text-lg font-semibold" data-id="exp1-org">Himpunan Mahasiswa Pendidikan Komputer</p>
+                        </div>
+                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2022 — 2023</span>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-secondary-light dark:text-white/70">
+                        <li data-id="exp1-desc1">Menjadi Penanggung Jawab Latihan Dasar Kepemimpinan Mahasiswa (LDKM) Program Studi Pendidikan Komputer</li>
+                        <li data-id="exp1-desc2">Menjadi Ketua Pelaksana Study Club Untuk Mahasiswa Pendidikan Komputer Dalam Bidang Pemrograman</li>
+                    </ul>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="bg-white dark:bg-secondary-dark rounded-xl p-6 shadow-lg smooth-transition hover:shadow-xl">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-accent" data-id="exp2-position">Kepala Divisi Kaderisasi</h3>
+                            <p class="text-lg font-semibold" data-id="exp2-org">Himpunan Mahasiswa Pendidikan Komputer</p>
+                        </div>
+                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2023 — 2024</span>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-secondary-light dark:text-white/70">
+                        <li data-id="exp2-desc1">Membuat konten visual dan multimedia untuk kegiatan kemahasiswaan</li>
+                        <li data-id="exp2-desc2">Dokumentasi dan publikasi event-event fakultas di media sosial</li>
+                        <li data-id="exp2-desc3">Kolaborasi dengan divisi lain untuk mempromosikan program kerja</li>
+                    </ul>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="bg-white dark:bg-secondary-dark rounded-xl p-6 shadow-lg smooth-transition hover:shadow-xl">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-accent" data-id="exp3-position">Anggota Bidang Sosial Masyarakat</h3>
+                            <p class="text-lg font-semibold" data-id="exp3-org">Badan Eksekutif Mahasiswa Fakultas Keguruan dan Ilmu Pendidikan, Universitas Lambung Mangkurat</p>
+                        </div>
+                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2023-2024</span>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-secondary-light dark:text-white/70">
+                        <li data-id="exp3-desc1">Berkontribusi dalam bakti sosial yang disalurkan langsung ke masyarakat yang membutuhkan</li>
+                        <li data-id="exp3-desc2">Menjadi Ketua Pelaksana Talkshow tentang Literasi Digital Kepada Masyrakat</li>
+                        <li data-id="exp3-desc3">Menyelenggarakan diskusi tentang isu-isu sosial terkini bersama Mahasiswa FKIP</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-secondary-dark smooth-transition">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span data-id="skills-title">Keahlian</span>
+            </h2>
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Technical Skills -->
+                    <div class="space-y-8">
+                        <h3 class="text-2xl font-bold text-accent text-center md:text-left" data-id="skills-tech-title">Technical Skills</h3>
+                        
+                        <div class="bg-white dark:bg-secondary-dark rounded-xl p-6 shadow-lg smooth-transition">
+                            <h4 class="text-lg font-semibold mb-4 text-accent" data-id="skills-lang">Bahasa Pemrograman</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">HTML</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">CSS</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">JavaScript</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">PHP</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">React.js</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Express.js</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-secondary-dark rounded-xl p-6 shadow-lg smooth-transition">
+                            <h4 class="text-lg font-semibold mb-4 text-accent" data-id="skills-tools">Tools & Framework</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Bootstrap</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Tailwind</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Laravel</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Git</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Postman</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">QGIS</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Node.js</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">MySQL</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Firebase</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Socket.io</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">REST API</span>
+                                <span class="px-4 py-2 bg-accent/10 rounded-lg">Figma</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="space-y-8">
+                        <h3 class="text-2xl font-bold text-accent text-center md:text-left" data-id="skills-soft-title">Soft Skills</h3>
+                        
+                        <div class="bg-white dark:bg-secondary-dark rounded-xl p-6 shadow-lg smooth-transition">
+                            <h4 class="text-lg font-semibold mb-4 text-accent" data-id="skills-office">Office Applications</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-file-word text-accent text-xl w-6"></i>
+                                    <span>Microsoft Word</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-file-excel text-accent text-xl w-6"></i>
+                                    <span>Microsoft Excel</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-file-powerpoint text-accent text-xl w-6"></i>
+                                    <span>Microsoft PowerPoint</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-secondary-dark rounded-xl p-6 shadow-lg smooth-transition">
+                            <h4 class="text-lg font-semibold mb-4 text-accent" data-id="skills-other">Other Skills</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-users text-accent text-xl w-6"></i>
+                                    <span data-id="skills-teamwork">Kerjasama Tim</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-brain text-accent text-xl w-6"></i>
+                                    <span data-id="skills-critical">Berpikir Kritis</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-lightbulb text-accent text-xl w-6"></i>
+                                    <span data-id="skills-creative">Kreativitas & Inovasi</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-seedling text-accent text-xl w-6"></i>
+                                    <span data-id="skills-growth">Mindset Berkembang</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-sync-alt text-accent text-xl w-6"></i>
+                                    <span data-id="skills-adaptive">Kemampuan Beradaptasi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span data-id="projects-title">Projek</span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <a href="https://github.com/wil17/ProjectBanuaBioskop" target="_blank" class="project-card bg-white dark:bg-primary-dark rounded-xl overflow-hidden shadow-lg smooth-transition block">
+                    <div class="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                        <img src="./img/project_basdat.png" alt="Banua Bioskop" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-secondary-light hidden items-center justify-center">
+                            <i class="fas fa-ticket-alt text-6xl text-white/30"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Banua Bioskop</h3>
+                        <p class="text-sm text-secondary-light dark:text-white/60 mb-4" data-id="proj1-desc">
+                            Platform pemesanan tiket bioskop film lokal online di Banjarmasin
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-accent/10 rounded">Laravel</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Bootstrap</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Firebase</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="https://github.com/KM-5-FS-23" target="_blank" class="project-card bg-white dark:bg-primary-dark rounded-xl overflow-hidden shadow-lg smooth-transition block">
+                    <div class="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                        <img src="./img/project-babayo.png" alt="Baca Baca Yo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-secondary-light hidden items-center justify-center">
+                            <i class="fas fa-book-reader text-6xl text-white/30"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Baca Baca Yo (Babayo)</h3>
+                        <p class="text-sm text-secondary-light dark:text-white/60 mb-4" data-id="proj2-desc">
+                            Platform baca buku online gratis dengan sistem gamifikasi dan badge rewards
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-accent/10 rounded">React</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Express.js</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Tailwind</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3 -->
+                <a href="https://github.com/wil17/online-attendance-system" target="_blank" class="project-card bg-white dark:bg-primary-dark rounded-xl overflow-hidden shadow-lg smooth-transition block">
+                    <div class="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                        <img src="./img/project-attendancehub.PNG" alt="Sistem Absensi Online" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-secondary-light hidden items-center justify-center">
+                            <i class="fas fa-clock text-6xl text-white/30"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" data-id="proj3-title">Sistem Absensi Online</h3>
+                        <p class="text-sm text-secondary-light dark:text-white/60 mb-4" data-id="proj3-desc">
+                            Aplikasi absensi karyawan realtime berbasis GPS tracking
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-accent/10 rounded">React.js</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Socket.io</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">MySQL</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 4 -->
+                <a href="https://github.com/wil17/finance-manager" target="_blank" class="project-card bg-white dark:bg-primary-dark rounded-xl overflow-hidden shadow-lg smooth-transition block">
+                    <div class="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                        <img src="./img/project_finance_manager.PNG" alt="Personal Finance Manager" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-secondary-light hidden items-center justify-center">
+                            <i class="fas fa-wallet text-6xl text-white/30"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" data-id="proj4-title">Personal Finance Manager</h3>
+                        <p class="text-sm text-secondary-light dark:text-white/60 mb-4" data-id="proj4-desc">
+                            Aplikasi pengelola keuangan pribadi dengan visualisasi grafik dan financial goals
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-accent/10 rounded">React.js</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Express.js</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">MySQL</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 5 -->
+                <a href="https://github.com/wil17/aistudy-assistant" target="_blank" class="project-card bg-white dark:bg-primary-dark rounded-xl overflow-hidden shadow-lg smooth-transition block">
+                    <div class="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                        <img src="./img/project-aistudy.PNG" alt="AI Study Assistant" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-secondary-light hidden items-center justify-center">
+                            <i class="fas fa-robot text-6xl text-white/30"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">AI Study Assistant</h3>
+                        <p class="text-sm text-secondary-light dark:text-white/60 mb-4" data-id="proj5-desc">
+                            Asisten belajar berbasis AI dengan chatbot, manajemen catatan, dan flashcards generator
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-accent/10 rounded">React.js</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Groq API</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Tailwind</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 6 -->
+                <a href="https://github.com/wil17/simple-ecommerce" target="_blank" class="project-card bg-white dark:bg-primary-dark rounded-xl overflow-hidden shadow-lg smooth-transition block">
+                    <div class="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                        <img src="./img/project-ecommerce.PNG" alt="E-Commerce Platform" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-secondary-light hidden items-center justify-center">
+                            <i class="fas fa-shopping-cart text-6xl text-white/30"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">E-Commerce Platform</h3>
+                        <p class="text-sm text-secondary-light dark:text-white/60 mb-4" data-id="proj7-desc">
+                            Platform e-commerce dengan keranjang belanja dan sistem checkout simulasi
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-accent/10 rounded">React.js</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Express.js</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Tailwind</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 7 -->
+                <a href="https://github.com/wil17/Collabtask-realtime" target="_blank" class="project-card bg-white dark:bg-primary-dark rounded-xl overflow-hidden shadow-lg smooth-transition block">
+                    <div class="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                        <img src="./img/project-collabtask.PNG" alt="CollabTask" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-secondary-light hidden items-center justify-center">
+                            <i class="fas fa-tasks text-6xl text-white/30"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">CollabTask</h3>
+                        <p class="text-sm text-secondary-light dark:text-white/60 mb-4" data-id="proj8-desc">
+                            Aplikasi collaborative todo list realtime untuk manajemen project tim
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-accent/10 rounded">React.js</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Socket.io</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">MySQL</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 8 -->
+                <a href="https://github.com/wil17/ProjectPulauBakut" target="_blank" class="project-card bg-white dark:bg-primary-dark rounded-xl overflow-hidden shadow-lg smooth-transition block">
+                    <div class="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                        <img src="./img/project_bakut.png" alt="Wisata Pulau Bakut" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-secondary-light hidden items-center justify-center">
+                            <i class="fas fa-umbrella-beach text-6xl text-white/30"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" data-id="proj9-title">Wisata Pulau Bakut</h3>
+                        <p class="text-sm text-secondary-light dark:text-white/60 mb-4" data-id="proj9-desc">
+                            Sistem informasi dan pemesanan tiket wisata pulau bakut secara online
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-accent/10 rounded">Laravel</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Bootstrap</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">MySQL</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 9 -->
+                <a href="https://github.com/wil17/gis-faskesbjm" target="_blank" class="project-card bg-white dark:bg-primary-dark rounded-xl overflow-hidden shadow-lg smooth-transition block">
+                    <div class="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                        <img src="./img/project-gis.png" alt="SIG Faskes Banjarmasin" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-secondary-light hidden items-center justify-center">
+                            <i class="fas fa-map-marked-alt text-6xl text-white/30"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2" data-id="proj6-title">SIG Faskes Banjarmasin</h3>
+                        <p class="text-sm text-secondary-light dark:text-white/60 mb-4" data-id="proj6-desc">
+                            Pemetaan fasilitas kesehatan dengan GPS tracking dan routing system
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-accent/10 rounded">Laravel</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">Leaflet.js</span>
+                            <span class="px-2 py-1 bg-accent/10 rounded">QGIS</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-light dark:bg-primary-dark py-8 smooth-transition">
+        <div class="container mx-auto px-6 text-center text-white/70">
+            <p>&copy; 2025 Willy Nurgian. <span data-id="footer-rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Translation data
+        const translations = {
+            id: {
+                'nav-home': 'Beranda',
+                'nav-about': 'Tentang',
+                'nav-experience': 'Pengalaman',
+                'nav-skills': 'Keahlian',
+                'nav-projects': 'Proyek',
+                'hero-hi': 'Halo, Saya',
+                'hero-title': 'Full Stack Web Developer',
+                'hero-desc': 'Mengubah ide menjadi solusi digital yang inovatif dan berdampak',
+                'btn-hire': 'Hubungi Saya',
+                'btn-cv': 'Download CV',
+                'about-title': 'Tentang Saya',
+                'about-bio': 'Full Stack Web Developer dengan keahlian dalam membangun aplikasi web yang inovatif dan user-friendly. Berpengalaman dalam mengembangkan berbagai jenis website mulai dari sistem informasi geografis, e-commerce, hingga aplikasi berbasis AI, dan lainnya. Memiliki passion dalam menciptakan solusi digital yang memberikan dampak nyata bagi pengguna.',
+                'about-edu-title': 'Pendidikan',
+                'about-edu-year': 'Tahun Lulus: 2025',
+                'about-loc-title': 'Lokasi',
+                'experience-title': 'Pengalaman Organisasi',
+                'exp1-position': 'Anggota Divisi Kaderisasi',
+                'exp1-org': 'Himpunan Mahasiswa Pendidikan Komputer',
+                'exp1-desc1': 'Menjadi Penanggung Jawab Latihan Dasar Kepemimpinan Mahasiswa (LDKM) Program Studi Pendidikan Komputer',
+                'exp1-desc2': 'Menjadi Ketua Pelaksana Study Club Untuk Mahasiswa Pendidikan Komputer Dalam Bidang Pemrograman',
+                'exp2-position': 'Kepala Divisi Kaderisasi',
+                'exp2-org': 'Himpunan Mahasiswa Pendidikan Komputer',
+                'exp2-desc1': 'Membuat dan Membagikan Rancangan Program Kerja Divisi Kaderisasi Kepada Seluruh Anggota',
+                'exp2-desc2': 'Memantau dan Mengevaluasi Seluruh Kinerja Anggota Divisi Kaderisasi',
+                'exp3-position': 'Anggota Bidang Sosial Masyarakat',
+                'exp3-org': 'Badan Eksekutif Mahasiswa Fakultas Keguruan dan Ilmu Pendidikan, Universitas Lambung Mangkurat',
+                'exp3-desc1': 'Berkontribusi dalam bakti sosial yang disalurkan langsung ke masyarakat yang membutuhkan',
+                'exp3-desc2': 'Menjadi Ketua Pelaksana Talkshow tentang Literasi Digital Kepada Masyrakat',
+                'exp3-desc3': 'Menyelenggarakan diskusi tentang isu-isu sosial terkini bersama Mahasiswa FKIP',
+                'skills-title': 'Keahlian',
+                'skills-tech-title': 'Technical Skills',
+                'skills-lang': 'Bahasa Pemrograman',
+                'skills-tools': 'Tools & Framework',
+                'skills-soft-title': 'Soft Skills',
+                'skills-office': 'Aplikasi Perkantoran',
+                'skills-other': 'Kemampuan Lainnya',
+                'skills-teamwork': 'Kerjasama Tim',
+                'skills-critical': 'Berpikir Kritis',
+                'skills-creative': 'Kreativitas & Inovasi',
+                'skills-growth': 'Mindset Berkembang',
+                'skills-adaptive': 'Kemampuan Beradaptasi',
+                'projects-title': 'Projek',
+                'proj1-desc': 'Platform pemesanan tiket bioskop film lokal online di Banjarmasin',
+                'proj2-desc': 'Platform baca buku online gratis dengan sistem gamifikasi dan badge rewards',
+                'proj3-title': 'Sistem Absensi Online',
+                'proj3-desc': 'Aplikasi absensi karyawan realtime berbasis GPS tracking',
+                'proj4-title': 'Personal Finance Manager',
+                'proj4-desc': 'Aplikasi pengelola keuangan pribadi dengan visualisasi grafik dan financial goals',
+                'proj5-desc': 'Asisten belajar berbasis AI dengan chatbot, manajemen catatan, dan flashcards generator',
+                'proj7-desc': 'Platform e-commerce dengan keranjang belanja dan sistem checkout simulasi',
+                'proj8-desc': 'Aplikasi collaborative todo list realtime untuk manajemen project tim',
+                'proj9-title': 'Wisata Pulau Bakut',
+                'proj9-desc': 'Sistem informasi dan pemesanan tiket wisata pulau bakut secara online',
+                'proj6-title': 'SIG Faskes Banjarmasin',
+                'proj6-desc': 'Pemetaan fasilitas kesehatan dengan GPS tracking dan routing system',
+                'footer-rights': 'Hak cipta dilindungi.'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-about': 'About',
+                'nav-experience': 'Experience',
+                'nav-skills': 'Skills',
+                'nav-projects': 'Projects',
+                'hero-hi': 'Hi, I\'m',
+                'hero-title': 'Full Stack Web Developer',
+                'hero-desc': 'Transforming ideas into innovative and impactful digital solutions',
+                'btn-hire': 'Contact Me',
+                'btn-cv': 'Download CV',
+                'about-title': 'About Me',
+                'about-bio': 'Full Stack Web Developer with expertise in building innovative and user-friendly web applications. Experienced in developing various types of websites from geographic information systems, e-commerce, to AI-based applications, and others. Passionate about creating digital solutions that make a real impact for users.',
+                'about-edu-title': 'Education',
+                'about-edu-year': 'Graduation Year: 2025',
+                'about-loc-title': 'Location',
+                'experience-title': 'Organization Experience',
+                'exp1-position': 'Members of the Cadre Division',
+                'exp1-org': 'Computer Education Student Association',
+                'exp1-desc1': 'Becoming the Person in Charge of Basic Student Leadership Training (LDKM) for the Computer Education Study Program',
+                'exp1-desc2': 'Responsible for organizational website maintenance and database systems',
+                'exp2-position': 'Head of the Cadre Development Division',
+                'exp2-org': 'Computer Education Student Association',
+                'exp2-desc1': 'Creating and Distributing the Division Work Program Plan to All Members',
+                'exp2-desc2': 'Monitoring and Evaluating the Overall Performance of Cadre Division Members',
+                'exp3-position': 'Member of the Social Affairs Division',
+                'exp3-org': 'Student executive body of the faculty of teacher training and education, Lambung Mangkurat University',
+                'exp3-desc1': 'Contributing to social services that are distributed directly to communities in need',
+                'exp3-desc2': 'Becoming the Executive Chair of a Talk Show on Digital Literacy for the Community',
+                'exp3-desc3': 'Holding discussions on current social issues with FKIP students',
+                'skills-title': 'Skills',
+                'skills-tech-title': 'Technical Skills',
+                'skills-lang': 'Programming Languages',
+                'skills-tools': 'Tools & Framework',
+                'skills-soft-title': 'Soft Skills',
+                'skills-office': 'Office Applications',
+                'skills-other': 'Other Skills',
+                'skills-teamwork': 'Teamwork',
+                'skills-critical': 'Critical Thinking',
+                'skills-creative': 'Creativity & Innovation',
+                'skills-growth': 'Growth Mindset',
+                'skills-adaptive': 'Adaptability',
+                'projects-title': 'Projects',
+                'proj1-desc': 'Online local movie ticket booking platform in Banjarmasin',
+                'proj2-desc': 'Free online book reading platform with gamification system and badge rewards',
+                'proj3-title': 'Online Attendance System',
+                'proj3-desc': 'Real-time employee attendance application with GPS tracking',
+                'proj4-title': 'Personal Finance Manager',
+                'proj4-desc': 'Personal finance management app with chart visualization and financial goals',
+                'proj5-desc': 'AI-based study assistant with chatbot, note management, and flashcards generator',
+                'proj7-desc': 'E-commerce platform with shopping cart and checkout simulation system',
+                'proj8-desc': 'Real-time collaborative todo list application for team project management',
+                'proj9-title': 'Bakut Island Tourism',
+                'proj9-desc': 'Tourism information system and online ticket booking for Bakut Island',
+                'proj6-title': 'GIS Health Facilities Banjarmasin',
+                'proj6-desc': 'Health facility mapping with GPS tracking and routing system',
+                'footer-rights': 'All rights reserved.'
+            }
+        };
+
+        let currentLang = 'id';
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const icon = document.getElementById('theme-icon');
+            if (document.documentElement.classList.contains('dark')) {
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon').className = 'fas fa-sun';
+        }
+
+        // Language toggle
+        function toggleLanguage() {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            document.getElementById('lang-toggle').textContent = currentLang === 'id' ? 'EN' : 'ID';
+            document.documentElement.lang = currentLang;
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-id]').forEach(element => {
+                const key = element.getAttribute('data-id');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Download CV
+        function downloadCV() {
+            const cvData = {
+                id: {
+                    name: 'Willy Nurgian',
+                    title: 'Full Stack Web Developer',
+                    email: 'willynurgian17@gmail.com',
+                    location: 'Banjarmasin, Indonesia',
+                    linkedin: 'https://www.linkedin.com/in/willynurgian/',
+                    github: 'https://github.com/wil17',
+                    bio: 'Full Stack Web Developer dengan keahlian dalam membangun aplikasi web yang inovatif dan user-friendly. Berpengalaman dalam mengembangkan berbagai jenis website mulai dari sistem informasi geografis, e-commerce, hingga aplikasi berbasis AI. Memiliki passion dalam menciptakan solusi digital yang memberikan dampak nyata bagi pengguna.',
+                    education: 'Universitas Lambung Mangkurat - Tahun Lulus: 2025',
+                    skills: {
+                        languages: 'HTML, CSS, JavaScript, PHP, React.js, Express.js',
+                        tools: 'Bootstrap, Tailwind, Laravel, Git, Postman, QGIS, Node.js, MySQL'
+                    }
+                },
+                en: {
+                    name: 'Willy Nurgian',
+                    title: 'Full Stack Web Developer',
+                    email: 'willynurgian17@gmail.com',
+                    location: 'Banjarmasin, Indonesia',
+                    linkedin: 'https://www.linkedin.com/in/willynurgian/',
+                    github: 'https://github.com/wil17',
+                    bio: 'Full Stack Web Developer with expertise in building innovative and user-friendly web applications. Experienced in developing various types of websites from geographic information systems, e-commerce, to AI-based applications. Passionate about creating digital solutions that make a real impact for users.',
+                    education: 'Lambung Mangkurat University - Graduation Year: 2025',
+                    skills: {
+                        languages: 'HTML, CSS, JavaScript, PHP, React.js, Express.js',
+                        tools: 'Bootstrap, Tailwind, Laravel, Git, Postman, QGIS, Node.js, MySQL'
+                    }
+                }
+            };
+
+            const data = cvData[currentLang];
+            const fileName = currentLang === 'id' ? 'CV_Willy_Nurgian_ID.txt' : 'CV_Willy_Nurgian_EN.txt';
+            
+            const cvContent = `
+${data.name}
+${data.title}
+
+Email: ${data.email}
+Location: ${data.location}
+LinkedIn: ${data.linkedin}
+GitHub: ${data.github}
+
+${currentLang === 'id' ? 'TENTANG' : 'ABOUT'}
+${data.bio}
+
+${currentLang === 'id' ? 'PENDIDIKAN' : 'EDUCATION'}
+${data.education}
+
+${currentLang === 'id' ? 'KEAHLIAN' : 'SKILLS'}
+${currentLang === 'id' ? 'Bahasa Pemrograman' : 'Programming Languages'}: ${data.skills.languages}
+${currentLang === 'id' ? 'Tools & Framework' : 'Tools & Framework'}: ${data.skills.tools}
+
+${currentLang === 'id' ? 'PROYEK UNGGULAN' : 'FEATURED PROJECTS'}
+
+1. Banua Bioskop
+   ${currentLang === 'id' ? 'Platform pemesanan tiket bioskop film lokal online di Banjarmasin' : 'Online local movie ticket booking platform in Banjarmasin'}
+   Tech Stack: PHP, Laravel, Bootstrap, Firebase
+
+2. Baca Baca Yo (Babayo)
+   ${currentLang === 'id' ? 'Platform baca buku online gratis dengan sistem gamifikasi' : 'Free online book reading platform with gamification system'}
+   Tech Stack: React, Node.js, Express.js, Tailwind CSS
+
+3. ${currentLang === 'id' ? 'Sistem Absensi Online' : 'Online Attendance System'}
+   ${currentLang === 'id' ? 'Aplikasi absensi karyawan realtime berbasis GPS tracking' : 'Real-time employee attendance application with GPS tracking'}
+   Tech Stack: React.js, Node.js, Socket.io, MySQL
+
+4. Personal Finance Manager
+   ${currentLang === 'id' ? 'Aplikasi pengelola keuangan pribadi dengan visualisasi grafik' : 'Personal finance management app with chart visualization'}
+   Tech Stack: React.js, Express.js, MySQL, Tailwind CSS
+
+5. AI Study Assistant
+   ${currentLang === 'id' ? 'Asisten belajar berbasis AI dengan chatbot dan flashcards generator' : 'AI-based study assistant with chatbot and flashcards generator'}
+   Tech Stack: React.js, Express.js, Groq API, Tailwind CSS
+
+6. ${currentLang === 'id' ? 'SIG Fasilitas Kesehatan Banjarmasin' : 'GIS Health Facilities Banjarmasin'}
+   ${currentLang === 'id' ? 'Pemetaan fasilitas kesehatan dengan GPS tracking dan routing' : 'Health facility mapping with GPS tracking and routing'}
+   Tech Stack: Laravel, Leaflet.js, QGIS, OpenStreetMap
+
+7. E-Commerce Platform
+   ${currentLang === 'id' ? 'Platform e-commerce dengan keranjang dan sistem checkout' : 'E-commerce platform with cart and checkout system'}
+   Tech Stack: React.js, Node.js, Express.js, Tailwind CSS
+
+8. CollabTask
+   ${currentLang === 'id' ? 'Aplikasi collaborative todo list realtime untuk tim' : 'Real-time collaborative todo list application for teams'}
+   Tech Stack: React.js, Socket.io, Express.js, MySQL
+
+9. ${currentLang === 'id' ? 'Sistem Pemesanan Tiket Wisata Pulau Bakut' : 'Bakut Island Tourism Ticket Booking System'}
+   ${currentLang === 'id' ? 'Platform informasi dan pemesanan tiket wisata online' : 'Tourism information and online ticket booking platform'}
+   Tech Stack: PHP, Laravel, Bootstrap, MySQL
+            `;
+
+            const blob = new Blob([cvContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+
+        // Send email - Direct to Gmail
+        function sendEmail(event) {
+            event.preventDefault();
+            
+            const subject = encodeURIComponent('Opportunity to Work Together');
+            const body = encodeURIComponent(
+                'Hi Willy,\n\n' +
+                'I visited your portfolio and I\'m interested in discussing a potential project/opportunity with you.\n\n' +
+                '[Please write your message here]\n\n' +
+                'Best regards,\n' +
+                '[Your Name]'
+            );
+            
+            // Open Gmail compose with pre-filled content
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=willynurgian17@gmail.com&su=${subject}&body=${body}`, '_blank');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll with offset for fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
