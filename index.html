@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willy Nurgian - Full Stack Web Developer</title>
+    <title>Portofolio Willy Nurgian</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -97,8 +97,11 @@
                         <a href="#" onclick="sendEmail(event)" class="px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 smooth-transition" data-id="btn-hire">
                             Hubungi Saya
                         </a>
-                        <button onclick="downloadCV()" class="px-6 py-3 border-2 border-accent text-accent rounded-lg hover:bg-accent hover:text-white smooth-transition" data-id="btn-cv">
-                            Download CV
+                        <button onclick="downloadCV('id')" class="px-6 py-3 border-2 border-accent text-accent rounded-lg hover:bg-accent hover:text-white smooth-transition" data-id="btn-cv-id">
+                            Download CV (ID)
+                        </button>
+                        <button onclick="downloadCV('en')" class="px-6 py-3 border-2 border-accent text-accent rounded-lg hover:bg-accent hover:text-white smooth-transition" data-id="btn-cv-en">
+                            Download CV (EN)
                         </button>
                     </div>
                     <div class="flex gap-4 mt-8">
@@ -164,7 +167,7 @@
                             <h3 class="text-xl font-bold text-accent" data-id="exp1-position">Anggota Divisi Kaderisasi</h3>
                             <p class="text-lg font-semibold" data-id="exp1-org">Himpunan Mahasiswa Pendidikan Komputer</p>
                         </div>
-                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2022 — 2023</span>
+                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2023 — 2024</span>
                     </div>
                     <ul class="list-disc list-inside space-y-2 text-secondary-light dark:text-white/70">
                         <li data-id="exp1-desc1">Menjadi Penanggung Jawab Latihan Dasar Kepemimpinan Mahasiswa (LDKM) Program Studi Pendidikan Komputer</li>
@@ -179,12 +182,11 @@
                             <h3 class="text-xl font-bold text-accent" data-id="exp2-position">Kepala Divisi Kaderisasi</h3>
                             <p class="text-lg font-semibold" data-id="exp2-org">Himpunan Mahasiswa Pendidikan Komputer</p>
                         </div>
-                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2023 — 2024</span>
+                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2024 — 2025</span>
                     </div>
                     <ul class="list-disc list-inside space-y-2 text-secondary-light dark:text-white/70">
-                        <li data-id="exp2-desc1">Membuat konten visual dan multimedia untuk kegiatan kemahasiswaan</li>
-                        <li data-id="exp2-desc2">Dokumentasi dan publikasi event-event fakultas di media sosial</li>
-                        <li data-id="exp2-desc3">Kolaborasi dengan divisi lain untuk mempromosikan program kerja</li>
+                        <li data-id="exp2-desc1">Merencanakan Program Kerja Divisi Kaderisasi dengan pembaharuan Program Kerja dan memastikan semua Program Kerja terlaksana</li>
+                        <li data-id="exp2-desc2">Evaluasi dan monitoring perkembangan Anggota Divisi Kaderisasi setiap 3 Bulan</li>
                     </ul>
                 </div>
 
@@ -193,14 +195,29 @@
                     <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                         <div>
                             <h3 class="text-xl font-bold text-accent" data-id="exp3-position">Anggota Bidang Sosial Masyarakat</h3>
-                            <p class="text-lg font-semibold" data-id="exp3-org">Badan Eksekutif Mahasiswa Fakultas Keguruan dan Ilmu Pendidikan, Universitas Lambung Mangkurat</p>
+                            <p class="text-lg font-semibold" data-id="exp3-org">BEM Fakultas Keguruan dan Ilmu Pendidikan Universitas Lambung Mangkurat</p>
                         </div>
-                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2023-2024</span>
+                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2023 — 2024</span>
                     </div>
                     <ul class="list-disc list-inside space-y-2 text-secondary-light dark:text-white/70">
                         <li data-id="exp3-desc1">Berkontribusi dalam bakti sosial yang disalurkan langsung ke masyarakat yang membutuhkan</li>
                         <li data-id="exp3-desc2">Menjadi Ketua Pelaksana Talkshow tentang Literasi Digital Kepada Masyrakat</li>
                         <li data-id="exp3-desc3">Menyelenggarakan diskusi tentang isu-isu sosial terkini bersama Mahasiswa FKIP</li>
+                    </ul>
+                </div>
+
+                <!-- Experience 4 (Baru) -->
+                <div class="bg-white dark:bg-secondary-dark rounded-xl p-6 shadow-lg smooth-transition hover:shadow-xl">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-accent" data-id="exp4-position">Dewan Penasehat Organisasi</h3>
+                            <p class="text-lg font-semibold" data-id="exp4-org">Himpunan Mahasiswa Pendidikan Komputer</p>
+                        </div>
+                        <span class="text-sm text-secondary-light dark:text-white/60 mt-2 md:mt-0">2025 — 2026</span>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-secondary-light dark:text-white/70">
+                        <li data-id="exp4-desc1">Memberikan Masukan dan Saran Strategis Kepada Pengurus Aktif</li>
+                        <li data-id="exp4-desc2">Mengawasi dan Mengevaluasi Kinerja Kepengurusan</li>
                     </ul>
                 </div>
             </div>
@@ -519,10 +536,11 @@
                 'nav-skills': 'Keahlian',
                 'nav-projects': 'Proyek',
                 'hero-hi': 'Halo, Saya',
-                'hero-title': 'Full Stack Web Developer',
+                'hero-title': 'FullStack Web Developer',
                 'hero-desc': 'Mengubah ide menjadi solusi digital yang inovatif dan berdampak',
                 'btn-hire': 'Hubungi Saya',
-                'btn-cv': 'Download CV',
+                'btn-cv-id': 'Download CV (ID)',
+                'btn-cv-en': 'Download CV (EN)',
                 'about-title': 'Tentang Saya',
                 'about-bio': 'Full Stack Web Developer dengan keahlian dalam membangun aplikasi web yang inovatif dan user-friendly. Berpengalaman dalam mengembangkan berbagai jenis website mulai dari sistem informasi geografis, e-commerce, hingga aplikasi berbasis AI, dan lainnya. Memiliki passion dalam menciptakan solusi digital yang memberikan dampak nyata bagi pengguna.',
                 'about-edu-title': 'Pendidikan',
@@ -535,13 +553,17 @@
                 'exp1-desc2': 'Menjadi Ketua Pelaksana Study Club Untuk Mahasiswa Pendidikan Komputer Dalam Bidang Pemrograman',
                 'exp2-position': 'Kepala Divisi Kaderisasi',
                 'exp2-org': 'Himpunan Mahasiswa Pendidikan Komputer',
-                'exp2-desc1': 'Membuat dan Membagikan Rancangan Program Kerja Divisi Kaderisasi Kepada Seluruh Anggota',
-                'exp2-desc2': 'Memantau dan Mengevaluasi Seluruh Kinerja Anggota Divisi Kaderisasi',
+                'exp2-desc1': 'Merencanakan Program Kerja Divisi Kaderisasi dengan pembaharuan Program Kerja dan memastikan semua Program Kerja terlaksana',
+                'exp2-desc2': 'Evaluasi dan monitoring perkembangan Anggota Divisi Kaderisasi setiap 3 Bulan',
                 'exp3-position': 'Anggota Bidang Sosial Masyarakat',
-                'exp3-org': 'Badan Eksekutif Mahasiswa Fakultas Keguruan dan Ilmu Pendidikan, Universitas Lambung Mangkurat',
+                'exp3-org': 'BEM Fakultas Keguruan dan Ilmu Pendidikan Universitas Lambung Mangkurat',
                 'exp3-desc1': 'Berkontribusi dalam bakti sosial yang disalurkan langsung ke masyarakat yang membutuhkan',
                 'exp3-desc2': 'Menjadi Ketua Pelaksana Talkshow tentang Literasi Digital Kepada Masyrakat',
                 'exp3-desc3': 'Menyelenggarakan diskusi tentang isu-isu sosial terkini bersama Mahasiswa FKIP',
+                'exp4-position': 'Dewan Penasehat Organisasi',
+                'exp4-org': 'Himpunan Mahasiswa Pendidikan Komputer',
+                'exp4-desc1': 'Memberikan Masukan dan Saran Strategis Kepada Pengurus Aktif',
+                'exp4-desc2': 'Mengawasi dan Mengevaluasi Kinerja Kepengurusan',
                 'skills-title': 'Keahlian',
                 'skills-tech-title': 'Technical Skills',
                 'skills-lang': 'Bahasa Pemrograman',
@@ -580,7 +602,8 @@
                 'hero-title': 'Full Stack Web Developer',
                 'hero-desc': 'Transforming ideas into innovative and impactful digital solutions',
                 'btn-hire': 'Contact Me',
-                'btn-cv': 'Download CV',
+                'btn-cv-id': 'Download CV (ID)',
+                'btn-cv-en': 'Download CV (EN)',
                 'about-title': 'About Me',
                 'about-bio': 'Full Stack Web Developer with expertise in building innovative and user-friendly web applications. Experienced in developing various types of websites from geographic information systems, e-commerce, to AI-based applications, and others. Passionate about creating digital solutions that make a real impact for users.',
                 'about-edu-title': 'Education',
@@ -593,13 +616,17 @@
                 'exp1-desc2': 'Responsible for organizational website maintenance and database systems',
                 'exp2-position': 'Head of the Cadre Development Division',
                 'exp2-org': 'Computer Education Student Association',
-                'exp2-desc1': 'Creating and Distributing the Division Work Program Plan to All Members',
-                'exp2-desc2': 'Monitoring and Evaluating the Overall Performance of Cadre Division Members',
+                'exp2-desc1': 'Planning the Cadre Division Work Program with program updates and ensuring all work programs are implemented',
+                'exp2-desc2': 'Evaluation and monitoring of Cadre Division Members development every 3 months',
                 'exp3-position': 'Member of the Social Affairs Division',
-                'exp3-org': 'Student executive body of the faculty of teacher training and education, Lambung Mangkurat University',
+                'exp3-org': 'Student executive body of the faculty of teacher training and education Lambung Mangkurat University',
                 'exp3-desc1': 'Contributing to social services that are distributed directly to communities in need',
                 'exp3-desc2': 'Becoming the Executive Chair of a Talk Show on Digital Literacy for the Community',
                 'exp3-desc3': 'Holding discussions on current social issues with FKIP students',
+                'exp4-position': 'Organizational Advisory Board',
+                'exp4-org': 'Computer Education Student Association',
+                'exp4-desc1': 'Providing Strategic Input and Suggestions to Active Management',
+                'exp4-desc2': 'Supervising and Evaluating Management Performance',
                 'skills-title': 'Skills',
                 'skills-tech-title': 'Technical Skills',
                 'skills-lang': 'Programming Languages',
@@ -672,108 +699,23 @@
             menu.classList.toggle('hidden');
         }
 
-        // Download CV
-        function downloadCV() {
-            const cvData = {
-                id: {
-                    name: 'Willy Nurgian',
-                    title: 'Full Stack Web Developer',
-                    email: 'willynurgian17@gmail.com',
-                    location: 'Banjarmasin, Indonesia',
-                    linkedin: 'https://www.linkedin.com/in/willynurgian/',
-                    github: 'https://github.com/wil17',
-                    bio: 'Full Stack Web Developer dengan keahlian dalam membangun aplikasi web yang inovatif dan user-friendly. Berpengalaman dalam mengembangkan berbagai jenis website mulai dari sistem informasi geografis, e-commerce, hingga aplikasi berbasis AI. Memiliki passion dalam menciptakan solusi digital yang memberikan dampak nyata bagi pengguna.',
-                    education: 'Universitas Lambung Mangkurat - Tahun Lulus: 2025',
-                    skills: {
-                        languages: 'HTML, CSS, JavaScript, PHP, React.js, Express.js',
-                        tools: 'Bootstrap, Tailwind, Laravel, Git, Postman, QGIS, Node.js, MySQL'
-                    }
-                },
-                en: {
-                    name: 'Willy Nurgian',
-                    title: 'Full Stack Web Developer',
-                    email: 'willynurgian17@gmail.com',
-                    location: 'Banjarmasin, Indonesia',
-                    linkedin: 'https://www.linkedin.com/in/willynurgian/',
-                    github: 'https://github.com/wil17',
-                    bio: 'Full Stack Web Developer with expertise in building innovative and user-friendly web applications. Experienced in developing various types of websites from geographic information systems, e-commerce, to AI-based applications. Passionate about creating digital solutions that make a real impact for users.',
-                    education: 'Lambung Mangkurat University - Graduation Year: 2025',
-                    skills: {
-                        languages: 'HTML, CSS, JavaScript, PHP, React.js, Express.js',
-                        tools: 'Bootstrap, Tailwind, Laravel, Git, Postman, QGIS, Node.js, MySQL'
-                    }
-                }
-            };
-
-            const data = cvData[currentLang];
-            const fileName = currentLang === 'id' ? 'CV_Willy_Nurgian_ID.txt' : 'CV_Willy_Nurgian_EN.txt';
+        // Download CV - Updated to download from Google Drive
+        function downloadCV(lang) {
+            let cvUrl, fileName;
             
-            const cvContent = `
-${data.name}
-${data.title}
-
-Email: ${data.email}
-Location: ${data.location}
-LinkedIn: ${data.linkedin}
-GitHub: ${data.github}
-
-${currentLang === 'id' ? 'TENTANG' : 'ABOUT'}
-${data.bio}
-
-${currentLang === 'id' ? 'PENDIDIKAN' : 'EDUCATION'}
-${data.education}
-
-${currentLang === 'id' ? 'KEAHLIAN' : 'SKILLS'}
-${currentLang === 'id' ? 'Bahasa Pemrograman' : 'Programming Languages'}: ${data.skills.languages}
-${currentLang === 'id' ? 'Tools & Framework' : 'Tools & Framework'}: ${data.skills.tools}
-
-${currentLang === 'id' ? 'PROYEK UNGGULAN' : 'FEATURED PROJECTS'}
-
-1. Banua Bioskop
-   ${currentLang === 'id' ? 'Platform pemesanan tiket bioskop film lokal online di Banjarmasin' : 'Online local movie ticket booking platform in Banjarmasin'}
-   Tech Stack: PHP, Laravel, Bootstrap, Firebase
-
-2. Baca Baca Yo (Babayo)
-   ${currentLang === 'id' ? 'Platform baca buku online gratis dengan sistem gamifikasi' : 'Free online book reading platform with gamification system'}
-   Tech Stack: React, Node.js, Express.js, Tailwind CSS
-
-3. ${currentLang === 'id' ? 'Sistem Absensi Online' : 'Online Attendance System'}
-   ${currentLang === 'id' ? 'Aplikasi absensi karyawan realtime berbasis GPS tracking' : 'Real-time employee attendance application with GPS tracking'}
-   Tech Stack: React.js, Node.js, Socket.io, MySQL
-
-4. Personal Finance Manager
-   ${currentLang === 'id' ? 'Aplikasi pengelola keuangan pribadi dengan visualisasi grafik' : 'Personal finance management app with chart visualization'}
-   Tech Stack: React.js, Express.js, MySQL, Tailwind CSS
-
-5. AI Study Assistant
-   ${currentLang === 'id' ? 'Asisten belajar berbasis AI dengan chatbot dan flashcards generator' : 'AI-based study assistant with chatbot and flashcards generator'}
-   Tech Stack: React.js, Express.js, Groq API, Tailwind CSS
-
-6. ${currentLang === 'id' ? 'SIG Fasilitas Kesehatan Banjarmasin' : 'GIS Health Facilities Banjarmasin'}
-   ${currentLang === 'id' ? 'Pemetaan fasilitas kesehatan dengan GPS tracking dan routing' : 'Health facility mapping with GPS tracking and routing'}
-   Tech Stack: Laravel, Leaflet.js, QGIS, OpenStreetMap
-
-7. E-Commerce Platform
-   ${currentLang === 'id' ? 'Platform e-commerce dengan keranjang dan sistem checkout' : 'E-commerce platform with cart and checkout system'}
-   Tech Stack: React.js, Node.js, Express.js, Tailwind CSS
-
-8. CollabTask
-   ${currentLang === 'id' ? 'Aplikasi collaborative todo list realtime untuk tim' : 'Real-time collaborative todo list application for teams'}
-   Tech Stack: React.js, Socket.io, Express.js, MySQL
-
-9. ${currentLang === 'id' ? 'Sistem Pemesanan Tiket Wisata Pulau Bakut' : 'Bakut Island Tourism Ticket Booking System'}
-   ${currentLang === 'id' ? 'Platform informasi dan pemesanan tiket wisata online' : 'Tourism information and online ticket booking platform'}
-   Tech Stack: PHP, Laravel, Bootstrap, MySQL
-            `;
-
-            const blob = new Blob([cvContent], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
+            if (lang === 'id') {
+                cvUrl = "https://drive.google.com/uc?export=download&id=1rlc8rEEJ8hDWD2SVl7GWMcOeYkbSCvzk";
+                fileName = 'CV_Willy_Nurgian_ID.pdf';
+            } else {
+                cvUrl = "https://drive.google.com/uc?export=download&id=1jbmVLT-SqsR2_QOIsINTgbyN26HGFR3t";
+                fileName = 'CV_Willy_Nurgian_EN.pdf';
+            }
+            
             const a = document.createElement('a');
-            a.href = url;
+            a.href = cvUrl;
             a.download = fileName;
             document.body.appendChild(a);
             a.click();
-            window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
         }
 
